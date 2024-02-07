@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db-data:/var/lib/postgresql/dat
+
+  api:
+    container_name: java_api
+    image: maven:3.9.6-amazoncorretto-17
+    ports: 
+      - 8080:8080
+    working_dir: /app
+    restart: always
+    volumes:
+      - ./restapi:/app
+    command: /bin/bash -c "chmod +x ./start.sh && ./start.sh "
+
+  seed:
+    container_name: seed
+    image: python:3.10.13-slim
+    depends_on: 
+      - db
+    working_dir: /app 
+    volumes: 
+      - ./seed:/app/seed
+      - ./dados:/app/dados
+    command: /bin/bash -c "chmod +x ./seed/seed.sh && ./seed/seed.sh" 
+
