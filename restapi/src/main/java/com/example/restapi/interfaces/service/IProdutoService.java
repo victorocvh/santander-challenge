@@ -16,7 +16,7 @@ public interface IProdutoService {
 
     Optional<Produto> findById(Long id);
 
-    Produto update(Produto produto);
+    Produto update(Long funcionarioId, Produto produto);
 
     void deleteById(Produto produto);
     

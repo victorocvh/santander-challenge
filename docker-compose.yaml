@@ -15,14 +15,16 @@ services:
 
   api:
     container_name: java_api
-    image: maven:3.9.6-amazoncorretto-17
+    # image: maven:3.9.6-amazoncorretto-17
+    build:
+      context: .
+      dockerfile: ./Dockerfile_BackApi
     ports: 
       - 8080:8080
     working_dir: /app
     restart: always
     volumes:
       - ./restapi:/app
-    command: /bin/bash -c "chmod +x ./start.sh && ./start.sh "
 
   seed:
     container_name: seed
@@ -34,4 +36,14 @@ services:
       - ./seed:/app/seed
       - ./dados:/app/dados
     command: /bin/bash -c "chmod +x ./seed/seed.sh && ./seed/seed.sh" 
+
+  frontend:
+    container_name: front_app
+    build: 
+      context: .
+      dockerfile: ./Dockerfile_FrontApp 
+    ports:
+      - 4200:4200
+    volumes:
+      - ./frontend:/app
 

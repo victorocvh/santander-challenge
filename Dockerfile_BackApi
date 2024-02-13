@@ -1,0 +1,7 @@
+FROM maven:3.9.6-amazoncorretto-17
+WORKDIR /app
+COPY ./restapi .
+RUN chmod +x ./start.sh 
+EXPOSE 8080
+CMD ["./start.sh"]
+
