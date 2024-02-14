@@ -1,4 +1,46 @@
 <!DOCTYPE html>
 <div class="main">
-MAIN
+  <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+  <ng-container matColumnDef="nomeCliente">
+    <th mat-header-cell *matHeaderCellDef> Nome Cliente </th>
+    <td mat-cell *matCellDef="let element"> {{element.nomeCliente}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nomeFuncionario">
+    <th mat-header-cell *matHeaderCellDef> Nome Funcionario </th>
+    <td mat-cell *matCellDef="let element"> {{element.nomeFuncionario}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="tipoFuncionario">
+    <th mat-header-cell *matHeaderCellDef> Tipo Funcionario </th>
+    <td mat-cell *matCellDef="let element"> {{element.tipoFuncionario}} </td>
+  </ng-container>
+  <ng-container matColumnDef="nomeProduto">
+    <th mat-header-cell *matHeaderCellDef> Nome Produto </th>
+    <td mat-cell *matCellDef="let element"> {{element.nomeProduto}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="valorTotal">
+    <th mat-header-cell *matHeaderCellDef> Valor Total </th>
+    <td mat-cell *matCellDef="let element"> {{element.valorTotal}} </td>
+  </ng-container>
+  <ng-container matColumnDef="quantidade">
+    <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+    <td mat-cell *matCellDef="let element"> {{element.quantidade}} </td>
+  </ng-container>
+  <ng-container matColumnDef="dataVenda">
+    <th mat-header-cell *matHeaderCellDef> Data Venda </th>
+    <td mat-cell *matCellDef="let element"> {{element.dataVenda | date:'dd-mm-YYYY'}} </td>
+  </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
 </div>

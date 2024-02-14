@@ -1,0 +1,8 @@
+#form-produto {
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-white {
+    background-color: white !important;
+}

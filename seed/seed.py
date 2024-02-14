@@ -21,6 +21,10 @@ for tabela in tabelas:
             df = pd.read_csv(f'./dados/{tabela}.csv')
             df.to_sql(tabela, engine, index=False, if_exists='append')
             conn.commit()
+            max_id = int(conn.execute(text(f"SELECT MAX(id) FROM {tabela}")).scalar())
+            conn.execute(text(f"ALTER SEQUENCE {tabela}_seq INCREMENT BY 1;"))
+            conn.execute(text(f"ALTER SEQUENCE {tabela}_seq RESTART WITH {max_id}"))
+            conn.commit()
         print(f'{tabela} executada.')
     except Exception as e:
         print(f'{tabela} ñ executada. {e}')

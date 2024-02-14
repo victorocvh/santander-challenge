@@ -11,19 +11,10 @@ import ProdutoService from './services/ProdutosService';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'frontend';
   produtos : any;
 
   constructor(private p: ProdutoService) {}
 
-  ngOnInit(): void {
-      this.getProdutos()
-  }
-
-  getProdutos() {
-    this.p.getProdutos().subscribe(res => {
-      alert(res)
-    })
-  }
 }
