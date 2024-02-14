@@ -8,8 +8,7 @@ import com.example.restapi.model.TipoFuncionario;
  * ITipoFuncionarioRepository
  */
 public interface ITipoFuncionarioRepository extends JpaRepository<TipoFuncionario, Long>{
-
-    
+//
 }
 // public class ITipoFuncionarioRepository {
     

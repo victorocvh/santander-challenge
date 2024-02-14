@@ -8,8 +8,7 @@ import com.example.restapi.model.Funcionario;
  * IFuncionarioRepository
  */
 public interface IFuncionarioRepository extends JpaRepository<Funcionario, Long> {
-
-    
+//    
 }
 // public class IFuncionarioRepository {
     

@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 
 
@@ -16,7 +17,8 @@ import lombok.Data;
 public class Produto {
     // id,nome_produto,descricao,preco,dt_atualizacao_preco,ativo
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(allocationSize = 1, name = "produto_seq", sequenceName = "produto_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_seq")
     private Long Id;
 
     @JoinColumn(name = "nome_produto")

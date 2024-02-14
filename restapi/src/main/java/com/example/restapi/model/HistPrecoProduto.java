@@ -8,14 +8,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 
 @Entity
 @Data
 public class HistPrecoProduto {
+
     // id,id_produto,id_vendedor,preco,dt_atualizacao
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(allocationSize = 1, name = "hist_preco_produto_seq", sequenceName = "hist_preco_produto_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hist_preco_produto_seq")
     private Long Id;
 
     @ManyToOne
@@ -28,5 +31,15 @@ public class HistPrecoProduto {
 
     private Float preco;
 
-    private Date dt_atualizacao;
+    @JoinColumn(name = "dt_atualizacao")
+    private Date dtAtualizacao;
+
+    public HistPrecoProduto() {}
+
+    public HistPrecoProduto(Produto pAntigo, Funcionario f, Date dtAtualizacao) {
+        this.produto = pAntigo;
+        this.funcionario = f;
+        this.preco = pAntigo.getPreco().floatValue();
+        this.dtAtualizacao = dtAtualizacao;
+    }
 }

@@ -6,7 +6,7 @@ import com.example.restapi.model.Produto;
 /**
  * ProductRepository
  */
-public interface IProdutoRepository extends JpaRepository<Produto, Long> {
-
+public interface IProdutoRepository extends JpaRepository<Produto, Long> {  
+    // Nothing
     
 }

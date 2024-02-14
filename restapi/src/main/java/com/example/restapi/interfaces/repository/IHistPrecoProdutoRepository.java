@@ -8,7 +8,7 @@ import com.example.restapi.model.HistPrecoProduto;
  * IHistPrecoProduto
  */
 public interface IHistPrecoProdutoRepository extends JpaRepository<HistPrecoProduto, Long>{
-
+//
 }
 // public class IHistPrecoProduto {
     

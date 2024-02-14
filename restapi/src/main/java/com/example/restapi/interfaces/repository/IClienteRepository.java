@@ -8,8 +8,7 @@ import com.example.restapi.model.Cliente;
  * ICliente
  */
 public interface IClienteRepository extends JpaRepository<Cliente, Long>{
-
-    
+// 
 }
 // public class ICliente {
     

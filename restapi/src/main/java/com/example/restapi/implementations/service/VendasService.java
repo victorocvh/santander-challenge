@@ -1,7 +1,6 @@
 package com.example.restapi.implementations.service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -21,9 +20,9 @@ import com.example.restapi.model.Funcionario;
 import com.example.restapi.model.Produto;
 import com.example.restapi.model.Vendas;
 
-import jakarta.annotation.Nonnull;
+
 import jakarta.persistence.EntityNotFoundException;
-import lombok.NonNull;
+
 
 import org.springframework.util.ObjectUtils;
 @Service
@@ -42,7 +41,7 @@ public class VendasService implements IVendasService {
     @Override
     public Vendas save(VendasRequestDTO vendasDTO) {
 
-        if ( ObjectUtils.isEmpty(vendasDTO) ||
+        if ( ObjectUtils.isEmpty(vendasDTO.getIdCliente()) ||
              ObjectUtils.isEmpty(vendasDTO.getIdProduto()) || 
              ObjectUtils.isEmpty(vendasDTO.getIdFuncionario()) || 
              ObjectUtils.isEmpty(vendasDTO.getQuantidade())) {

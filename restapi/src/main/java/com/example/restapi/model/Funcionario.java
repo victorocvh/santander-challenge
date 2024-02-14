@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 
 @Entity
@@ -14,7 +15,8 @@ import lombok.Data;
 public class Funcionario {
     // id,nome,email,telefone,dt_contratacao,ativo
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(allocationSize = 1, name = "funcionario_seq", sequenceName = "funcionario_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "funcionario_seq")
     private Long Id;
 
     private String nome;

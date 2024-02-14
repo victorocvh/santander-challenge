@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 
 
@@ -18,7 +19,8 @@ public class Cliente {
     // id,nome,email,cpf,telefone,dt_criacao,is_deleted
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(allocationSize = 1, name = "cliente_seq", sequenceName = "cliente_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="cliente_seq")
     private Long Id;
 // #oxe
     private String nome;

@@ -62,9 +62,9 @@ public class ProductService implements IProdutoService {
         }
 
         Date dtAtualizacao = new Date();
-        // HistPrecoProduto histPreco = new HistPrecoProduto(produto, opFuncionario.get(), dtAtualizacao);
+        HistPrecoProduto histPreco = new HistPrecoProduto(produto, opFuncionario.get(), dtAtualizacao);
         Produto newProduto = new Produto(produto, dtAtualizacao);
-        // histPrecoProdutoRepository.save(histPreco);
+        histPrecoProdutoRepository.save(histPreco);
         return produtoRepository.save(newProduto);
     }
 
