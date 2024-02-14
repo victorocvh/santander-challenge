@@ -1,7 +1,9 @@
 package com.example.restapi.implementations.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -13,6 +15,7 @@ import com.example.restapi.interfaces.repository.IHistPrecoProdutoRepository;
 import com.example.restapi.interfaces.repository.IProdutoRepository;
 import com.example.restapi.interfaces.service.IProdutoService;
 import com.example.restapi.model.Funcionario;
+import com.example.restapi.model.HistPrecoProduto;
 import com.example.restapi.model.Produto;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -47,7 +50,6 @@ public class ProductService implements IProdutoService {
     @Override
     public Produto update(Long funcionarioId,Produto produto) {
         // Para um produto ser atualizado precisa ter relação com um funcionário. 
-        System.out.println("Funcionario" + funcionarioId);
         Optional<Funcionario> opFuncionario = funcionarioRepository.findById(funcionarioId);
         Optional<Produto> opProduto = produtoRepository.findById(produto.getId());
 
@@ -59,10 +61,11 @@ public class ProductService implements IProdutoService {
             throw new EntityNotFoundException("Produto não encontrado");
         }
 
-        Double precoProdDB = opProduto.get().getPreco();
-        Double precoProdRequest = produto.getPreco();
-
-        return produtoRepository.save(produto);
+        Date dtAtualizacao = new Date();
+        // HistPrecoProduto histPreco = new HistPrecoProduto(produto, opFuncionario.get(), dtAtualizacao);
+        Produto newProduto = new Produto(produto, dtAtualizacao);
+        // histPrecoProdutoRepository.save(histPreco);
+        return produtoRepository.save(newProduto);
     }
 
     @Override

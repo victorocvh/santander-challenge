@@ -1,6 +1,9 @@
 package com.example.restapi.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.example.restapi.dto.request.VendasRequestDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,9 +33,33 @@ public class Vendas {
     @JoinColumn(name = "id_produto")
     private Produto produto;
     private Integer quantidade;
-    private Float valor_total;
-    private Float valor_unit;
-    private Date data_venda;
+
+    @JoinColumn(name = "valor_total")
+    private Float valorTotal;
+
+    @JoinColumn(name = "valor_unit")
+    private Float valorUnit;
+    @JoinColumn(name = "data_venda")
+    private Date dataVenda;
     private String observacoes;
-    private String mes_venda;
+    @JoinColumn(name = "mes_venda")
+    private String mesVenda;
+
+    public Vendas() {
+        super();
+    }
+    
+    public Vendas(VendasRequestDTO v, Cliente c, Produto p, Funcionario f) {
+        this.cliente = c;
+        this.produto = p;
+        this.funcionario = f;
+        this.quantidade = v.getQuantidade();
+        this.valorTotal = v.getQuantidade() * p.getPreco().floatValue();
+        this.valorUnit = p.getPreco().floatValue();
+        this.dataVenda = new Date();
+        this.observacoes = v.getObservacoes();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM");
+        String mesVenda = sdf.format(dataVenda);
+        this.mesVenda = mesVenda.replaceAll("\\.", "");
+    }
 }

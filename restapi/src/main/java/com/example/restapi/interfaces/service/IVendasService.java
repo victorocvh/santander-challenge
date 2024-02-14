@@ -2,7 +2,9 @@ package com.example.restapi.interfaces.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
+import com.example.restapi.dto.request.VendasRequestDTO;
 import com.example.restapi.model.Vendas;
 
 /**
@@ -10,7 +12,7 @@ import com.example.restapi.model.Vendas;
  */
 public interface IVendasService {
 
-    Vendas save(Vendas vendas);
+    Vendas save(VendasRequestDTO vendasDTO);
 
     List<Vendas> findAll();
 
