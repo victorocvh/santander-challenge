@@ -81,10 +81,6 @@ public class VendasService implements IVendasService {
         vendasRepository.delete(vendas);
     }
 
-    // @Override
-    // public Vendas save(Vendas vendas) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'save'");
-    // }
+
     
 }

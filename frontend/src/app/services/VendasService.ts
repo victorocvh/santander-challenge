@@ -9,8 +9,8 @@ class VendasService {
     constructor(private http: HttpClient) { }
     urlBase = "http://localhost:8080/api/v1/vendas"
     
-    AddVenda(venda : Venda) {
-        this.http.post(this.urlBase, venda)
+    AddVenda(venda : Venda) : Observable<Venda> {
+        return this.http.post<Venda>(this.urlBase, venda)
     }
 
     getVendas() : Observable<Venda[]> {

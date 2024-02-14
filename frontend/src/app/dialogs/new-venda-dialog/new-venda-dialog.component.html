@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<mat-dialog-content id="form-produto">
+    <mat-form-field>
+        <mat-label>Produto</mat-label>
+        <mat-select [(value)]="venda.idProduto">
+          <mat-option>None</mat-option>
+          @for (p of produtoList; track p) {
+            <mat-option [value]="p.id">{{p.nomeProduto}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Funcionario</mat-label>
+        <mat-select [(value)]="venda.idFuncionario">
+          <mat-option>None</mat-option>
+          @for (f of funcionarioList; track f) {
+            <mat-option [value]="f.id">{{f.nome}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select [(value)]="venda.idCliente">
+          <mat-option>None</mat-option>
+          @for (c of clienteList; track c) {
+            <mat-option [value]="c.id">{{c.nome}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Quantidade Items</mat-label>
+        <input matInput type="number" [(ngModel)]="venda.quantidade">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Observação</mat-label>
+        <input matInput type="text" [(ngModel)]="venda.observacoes">
+      </mat-form-field>
+
+
+      <button mat-button color="accent" (click)="SendData()">ENVIAR</button>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+
+    <!-- <button mat-button (click)="openDialog()">No Thanks</button> -->
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</mat-dialog-actions>

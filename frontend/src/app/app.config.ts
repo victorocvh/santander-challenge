@@ -7,6 +7,8 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import ProdutoService from './services/ProdutosService';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import VendasService from './services/VendasService';
+import FuncionarioService from './services/FuncionarioService';
+import ClienteService from './services/ClienteService';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +17,8 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(HttpClientJsonpModule),
     ProdutoService, provideAnimationsAsync(),
-    VendasService
+    VendasService,
+    FuncionarioService,
+    ClienteService
   ],
 };

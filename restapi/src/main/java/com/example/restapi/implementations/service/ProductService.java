@@ -3,11 +3,9 @@ package com.example.restapi.implementations.service;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
 import com.example.restapi.interfaces.repository.IFuncionarioRepository;
@@ -33,7 +31,18 @@ public class ProductService implements IProdutoService {
     private IFuncionarioRepository funcionarioRepository;
 
     @Override
-    public Produto save(Produto produto) {
+    public Produto save(Long funcionarioId, Produto produto) {
+
+        Optional<Funcionario> opFuncionario = funcionarioRepository.findById(funcionarioId);
+
+        if (!opFuncionario.isPresent()) {
+            throw new EntityNotFoundException("Funcionário não existe");
+        }
+
+        produto.setAtivo(true);
+        Date dtInsercao = new Date();
+        produto.setDtAtualizacaoPreco(dtInsercao);
+      
         return produtoRepository.save(produto);
     }
 
@@ -62,7 +71,7 @@ public class ProductService implements IProdutoService {
         }
 
         Date dtAtualizacao = new Date();
-        HistPrecoProduto histPreco = new HistPrecoProduto(produto, opFuncionario.get(), dtAtualizacao);
+        HistPrecoProduto histPreco = new HistPrecoProduto(opProduto.get(), opFuncionario.get(), dtAtualizacao);
         Produto newProduto = new Produto(produto, dtAtualizacao);
         histPrecoProdutoRepository.save(histPreco);
         return produtoRepository.save(newProduto);

@@ -15,7 +15,10 @@ public class VendasResponseDTO {
     private String nomeProduto;
     private Float valorTotal;
     private Integer quantidade;
-    private Date dataVenda; 
+    private Date dataVenda;
+    private Long idFuncionario;
+    private Long idCliente;
+    private Long idProduto; 
     
     public VendasResponseDTO() {
     }
@@ -28,5 +31,8 @@ public class VendasResponseDTO {
         this.valorTotal = venda.getValorTotal();
         this.quantidade = venda.getQuantidade();
         this.dataVenda = venda.getDataVenda();
+        this.idCliente = venda.getCliente().getId();
+        this.idFuncionario = venda.getFuncionario().getId();
+        this.idProduto = venda.getProduto().getId();
     }
 }
