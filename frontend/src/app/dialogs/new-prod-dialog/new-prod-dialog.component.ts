@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import Produto from '../../model/Produto';
 import ProdutoService from '../../services/ProdutosService';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-new-prod-dialog',
@@ -38,6 +39,7 @@ export class NewProdDialogComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
     private pService: ProdutoService,
+    private dialogRef: DialogRef<NewProdDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
@@ -48,13 +50,11 @@ export class NewProdDialogComponent implements OnInit {
   SendData() {
     if (this.update) {
       this.pService.putProduto(this.produto, this.funcionarioId).subscribe(res => {
-        alert('updated: ')
-        console.log(res)
+        this.dialogRef.close();
       })
     } else {
       this.pService.postProduto(this.produto, this.funcionarioId).subscribe(res => {
-        alert('post: ')
-        console.log(res)
+        this.dialogRef.close();
       })
     }
   }

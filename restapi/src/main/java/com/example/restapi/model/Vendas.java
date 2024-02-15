@@ -47,6 +47,7 @@ public class Vendas {
     @JoinColumn(name = "mes_venda")
     private String mesVenda;
 
+    private Integer mes;
     public Vendas() {
         super();
     }

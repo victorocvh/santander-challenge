@@ -25,7 +25,7 @@ import Produto from '../model/Produto';
   styleUrl: './produtos.component.css'
 })
 export class ProdutosComponent {
-  displayedColumns: string[] = ["id","ativo","descricao","dt_atualizacao_preco","nome_produto","preco","no"]
+  displayedColumns: string[] = ["id","ativo","dt_atualizacao_preco","nome_produto","preco","no"]
   dataSource = new MatTableDataSource<any>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -59,8 +59,8 @@ export class ProdutosComponent {
       panelClass: 'bg-white'
     })
 
-    dialogRef.afterClosed().subscribe(res => {
-      alert('iuha')
+    dialogRef.afterClosed().subscribe(_ => {
+      this.getProdutos();
     })
   }
 
