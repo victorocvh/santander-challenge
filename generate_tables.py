@@ -4,7 +4,7 @@ import locale
 fake = faker.Faker()
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 df_clientes = pd.read_csv('dados/cliente.csv')
-df_produtos = pd.read_csv('dados/produtos.csv')
+df_produtos = pd.read_csv('dados/produto.csv')
 df_produtos['dt_atualizacao_preco'] = pd.to_datetime(df_produtos['dt_atualizacao_preco'], errors='coerce')
 df_funcionario = pd.read_csv('dados/funcionario.csv')
 
@@ -45,7 +45,7 @@ def generate_tabela_preco():
         
     df_tabela_preco = pd.DataFrame(lista_preco)
     df_tabela_preco.to_csv('dados/hist_preco_produto.csv', index=False)
-    df_produtos.to_csv('dados/produtos.csv', index=False)
+    df_produtos.to_csv('dados/produto.csv', index=False)
 
 def generate_tabela_vendas():
     lista_vendas = []
@@ -73,6 +73,7 @@ def generate_tabela_vendas():
         lista_vendas.append(nova_venda)
         df = pd.DataFrame(lista_vendas)
         df['mes_venda'] = df['data_venda'].apply(lambda x: x.strftime('%b').lower())
+        df['mes'] = df['data_venda'].dt.month
         df.to_csv('dados/vendas.csv', index=False)
 
 generate_tabela_preco()

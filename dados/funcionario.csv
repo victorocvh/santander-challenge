@@ -1,11 +1,11 @@
 id,nome,email,telefone,dt_contratacao,ativo,tipo_funcionario_id
-1,Guilherme da Paz,maria-ceciliada-rocha@example.org,553119515610,2000-01-15 01:03:40.723135,False,1
-2,Arthur Cunha,laviniavieira@example.net,06118139492,1997-07-05 09:09:52.558980,True,1
-3,Davi Lucca Mendes,almeidaluna@example.org,552177645827,2023-11-01 04:48:05.256840,True,1
-4,Carlos Eduardo Cavalcanti,carlos-eduardoda-rocha@example.org,1186267690,1975-03-08 17:24:52.449897,True,1
-5,Pedro Lucas Moraes,leandro71@example.org,4138361238,2009-09-14 13:47:13.685808,True,1
-6,Clarice Caldeira,beatriz28@example.net,04105350529,1998-07-29 13:29:51.145690,True,1
-7,Bruno da Cunha,yasmin47@example.com,6183912735,1970-02-22 05:43:25.228286,True,1
-8,Vitor Hugo da Rocha,marcelabarbosa@example.net,08427204011,1981-01-22 19:21:33.795467,False,1
-9,Isabelly Lima,davi-lucasramos@example.com,5128095526,1976-10-13 03:00:40.779680,True,1
-10,Pietra Martins,oda-luz@example.net,555108912958,2010-05-10 10:03:58.411866,True,1
+1,Murilo Barbosa,marcelolima@example.org,08000277330,2003-02-07 09:16:23.667401,False,1
+2,Joana Carvalho,freitaspedro-lucas@example.org,558182611055,2004-07-19 18:12:40.306576,True,1
+3,Dr. Vicente da Rosa,rodriguesluiz-otavio@example.org,5504110881394,1975-03-06 03:33:20.839257,True,1
+4,Maria Sophia Melo,giovanna20@example.org,08161065312,1980-12-25 11:31:41.152606,False,1
+5,Pietro Farias,lopeselisa@example.com,01185213005,2004-04-24 03:36:10.304366,False,1
+6,Evelyn da Paz,agatha92@example.org,556143844408,2002-06-06 11:33:49.121190,False,1
+7,Laís Carvalho,ana73@example.com,555142027825,2003-11-27 01:42:30.616168,False,1
+8,Juan Pereira,zaraujo@example.org,8172696124,2016-08-02 03:24:29.653842,True,1
+9,Luigi Melo,barbosaleonardo@example.com,551172824060,1999-06-11 13:43:30.170532,False,1
+10,Kaique da Conceição,beniciofogaca@example.org,08120138516,2000-10-20 22:13:05.685683,True,1
