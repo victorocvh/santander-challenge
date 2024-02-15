@@ -6,3 +6,15 @@
 .bg-white {
     background-color: white !important;
 }
+
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+    background-color: white !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: white !important;
+}
+
+:host {
+    background-color: white !important;
+}

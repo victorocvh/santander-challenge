@@ -43,3 +43,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-radius: 20px;
     border: 3px solid white;
   }
+
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: #d8d9e2  !important;
+}
+
+mat-dialog-content > .mat-mdc-button {
+  background: #1f285a !important;
+}
+
+mat-form-field > .mdc-text-field {
+  background: #1f285a !important;
+  border-radius: 10px;
+}
+
+mat-mdc-select-panel {
+  background: #1f285a !important;
+}
+
+.mdc-text-field--focused {
+  color: white !important;
+}
+
+.mdc-floating-label--float-above {
+  color: white !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  border-bottom-color: #ff0000 !important;
+}
