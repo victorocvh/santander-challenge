@@ -31,6 +31,7 @@ services:
     image: python:3.10.13-slim
     depends_on: 
       - db
+      - api
     working_dir: /app 
     volumes: 
       - ./seed:/app/seed
