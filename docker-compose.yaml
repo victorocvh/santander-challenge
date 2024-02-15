@@ -46,5 +46,5 @@ services:
     ports:
       - 4200:4200
     volumes:
-      - ./frontend:/app
+      - ./frontend/src:/app/src
 

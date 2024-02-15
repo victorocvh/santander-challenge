@@ -1,7 +1,15 @@
 FROM node:18.16.1-slim
 RUN npm install -g @angular/cli@17.1.2
 WORKDIR /app
-COPY ./frontend .
-RUN npm i
+COPY ./frontend/src /app/src 
+COPY ./frontend/angular.json .
+COPY ./frontend/package.json .
+COPY ./frontend/server.ts .
+COPY ./frontend/tsconfig.app.json .
+COPY ./frontend/tsconfig.json .
+COPY ./frontend/tsconfig.spec.json .
+# RUN rm -r ./node_modules
+RUN npm install
 EXPOSE 4200
+# CMD ["tail", "-f", "/dev/null"]
 CMD ["ng", "serve","--host","0.0.0.0"]
