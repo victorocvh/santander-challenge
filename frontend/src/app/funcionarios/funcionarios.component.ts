@@ -20,6 +20,7 @@ export class FuncionarioComponent {
   dataSource = new MatTableDataSource<any>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  
   constructor(private fService: FuncionarioService,
     public dialog: MatDialog) {}
   

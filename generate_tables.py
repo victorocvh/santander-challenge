@@ -50,7 +50,7 @@ def generate_tabela_preco():
 def generate_tabela_vendas():
     lista_vendas = []
 
-    for i in range(random.randint(1,100)):
+    for i in range(random.randint(1,300)):
         
         cliente = df_clientes.sample(n=1)
         funcionario = df_funcionario.sample(n=1)
