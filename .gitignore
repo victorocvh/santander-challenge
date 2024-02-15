@@ -2,4 +2,3 @@
 *.vscode
 *db-data
 *venv
-*.properties*
