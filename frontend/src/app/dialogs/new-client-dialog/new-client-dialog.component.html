@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<mat-dialog-content id="form-produto">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" [(ngModel)]="cliente.nome">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="cliente.email">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>CPF</mat-label>
+        <input matInput type="text" [(ngModel)]="cliente.cpf">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Telefone</mat-label>
+        <input matInput type="text" [(ngModel)]="cliente.telefone">
+      </mat-form-field>
+
+      <button mat-button color="accent" (click)="SendData()">ENVIAR</button>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+
+    <!-- <button mat-button (click)="openDialog()">No Thanks</button> -->
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</mat-dialog-actions>

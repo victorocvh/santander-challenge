@@ -9,6 +9,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import VendasService from './services/VendasService';
 import FuncionarioService from './services/FuncionarioService';
 import ClienteService from './services/ClienteService';
+import TipoFuncionarioService from './services/TipoFuncionarioService';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     ProdutoService, provideAnimationsAsync(),
     VendasService,
     FuncionarioService,
-    ClienteService
+    ClienteService,
+    TipoFuncionarioService
   ],
 };

@@ -9,7 +9,7 @@ import { NewVendaDialogComponent } from '../dialogs/new-venda-dialog/new-venda-d
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule, CommonModule,NewVendaDialogComponent ],
+  imports: [MatTableModule, MatPaginatorModule, CommonModule,NewVendaDialogComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

@@ -23,3 +23,23 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #d92f2e  white;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #d92f2e ;
+    border-radius: 20px;
+    border: 3px solid white;
+  }

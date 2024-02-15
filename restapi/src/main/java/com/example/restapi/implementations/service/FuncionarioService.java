@@ -25,7 +25,8 @@ public class FuncionarioService implements IFuncionarioService {
     @Override
     public Funcionario save(Funcionario f) {
 
-        f.setDt_contratacao(new Date());
+        f.setAtivo(true);
+        f.setDtContratacao(new Date());
         return funcionarioRepository.save(f);
     }
 

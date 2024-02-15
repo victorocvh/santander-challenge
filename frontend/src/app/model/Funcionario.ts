@@ -1,5 +1,4 @@
-
-
+import TipoFuncionario from "./TipoFuncionario";
 
 class Funcionario {
     id!: Number;
@@ -8,6 +7,7 @@ class Funcionario {
     telefone!: String;
     dtContratacao!: Date;
     ativo!: Boolean;
+    tipoFuncionario!: TipoFuncionario;
 }
 
 export default Funcionario;

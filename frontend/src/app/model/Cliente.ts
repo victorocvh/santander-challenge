@@ -1,6 +1,5 @@
 
 class Cliente {
-
     id!: Number; 
     nome!: String; 
     email!: String;

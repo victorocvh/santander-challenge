@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<button mat-button (click)="openDialog()">Novo Funcionário</button>
+<div class="produtos">
+  <table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+  <ng-container matColumnDef="dt_contratacao">
+    <th mat-header-cell *matHeaderCellDef> Contratado em: </th>
+    <td mat-cell *matCellDef="let element"> {{element.dt_contratacao | date:'dd-MM-yyyy hh:mm:ss'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ativo">
+    <th mat-header-cell *matHeaderCellDef> Ativo ? </th>
+    <td mat-cell *matCellDef="let element"> {{element.ativo | date:'dd-MM-yyyy hh:mm:ss'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipoFuncionario">
+    <th mat-header-cell *matHeaderCellDef> Tipo Funcionário </th>
+    <td mat-cell *matCellDef="let element"> {{element.tipoFuncionario.descricao}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="No">
+    <th mat-header-cell *matHeaderCellDef> - </th>
+    <td mat-cell *matCellDef="let element"> <button (click)="Editar(element)">Editar</button> </td>
+  </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+
+  

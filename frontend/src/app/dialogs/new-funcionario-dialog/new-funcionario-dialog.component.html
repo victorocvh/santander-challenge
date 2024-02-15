@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <mat-dialog-content id="form-produto">
+
       <mat-form-field>
-        <mat-label>Nome Produto</mat-label>
-        <input matInput type="text" [(ngModel)]="produto.nomeProduto">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" [(ngModel)]="funcionario.nome">
       </mat-form-field>
       
       <mat-form-field>
-        <mat-label>Preço</mat-label>
-        <input matInput type="number" [(ngModel)]="produto.preco">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="funcionario.email">
       </mat-form-field>
       
       <mat-form-field>
-        <mat-label>Descrição</mat-label>
-        <input matInput type="text" [(ngModel)]="produto.descricao">
+        <mat-label>Telefone</mat-label>
+        <input matInput type="text" [(ngModel)]="funcionario.telefone">
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Funcionario</mat-label>
-        <mat-select [(value)]="funcionarioId">
+        <mat-label>Tipo Funcionario</mat-label>
+        <mat-select [(value)]="funcionario.tipoFuncionario">
           <mat-option>None</mat-option>
-          @for (f of funcionarioList; track f) {
-            <mat-option [value]="f.id">{{f.nome}}</mat-option>
+          @for (f of tipoFuncionarioList; track f) {
+            <mat-option [value]="f">{{f.descricao}}</mat-option>
           }
         </mat-select>
       </mat-form-field>

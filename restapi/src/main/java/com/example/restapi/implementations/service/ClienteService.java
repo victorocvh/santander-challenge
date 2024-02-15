@@ -24,8 +24,8 @@ public class ClienteService implements IClienteService {
 
     @Override
     public Cliente save(Cliente f) {
-
-        f.setDt_criacao(new Date());
+        f.setIsDeleted(false);
+        f.setDtCriacao(new Date());
         return clienteRepository.save(f);
     }
 

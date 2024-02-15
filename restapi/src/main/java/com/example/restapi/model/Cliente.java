@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 
@@ -31,8 +32,10 @@ public class Cliente {
 
     private String telefone;
 
-    private Date dt_criacao;
+    @JoinColumn(name = "dt_criacao")
+    private Date dtCriacao;
 
-    private Boolean is_deleted;
+    @JoinColumn(name = "is_deleted")
+    private Boolean isDeleted;
     
 }

@@ -15,6 +15,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import Produto from '../../model/Produto';
 import ProdutoService from '../../services/ProdutosService';
 import { DialogRef } from '@angular/cdk/dialog';
+import Funcionario from '../../model/Funcionario';
+import FuncionarioService from '../../services/FuncionarioService';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-new-prod-dialog',
@@ -27,7 +30,8 @@ import { DialogRef } from '@angular/cdk/dialog';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
-    MatInputModule],
+    MatInputModule,
+    MatSelectModule],
   templateUrl: './new-prod-dialog.component.html',
   styleUrl: './new-prod-dialog.component.css'
 })
@@ -36,15 +40,20 @@ export class NewProdDialogComponent implements OnInit {
   public produto = new Produto();
   public update = false;
   public funcionarioId = 0;
+  public funcionarioList : Funcionario[] = [];
 
   constructor(public dialog: MatDialog,
     private pService: ProdutoService,
+    private fService: FuncionarioService,
     private dialogRef: DialogRef<NewProdDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
       this.produto = this.data.produto || new Produto();
       this.update = this.data.produto ? true : false
+      this.fService.getFuncionarios().subscribe(res => {
+        this.funcionarioList = res;
+      })
   }
 
   SendData() {
